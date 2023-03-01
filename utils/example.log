@@ -118,3 +118,5 @@ INFO:root:we are hitting - https://swapi.dev/api/planets/2/
 INFO:root:success - 200
 INFO:root:we are hitting - https://swapi.dev/api/planets/3/
 INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films
+INFO:root:success - 200

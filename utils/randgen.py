@@ -18,3 +18,7 @@ class ProduceChars:
         while current <= self.limit:
             yield random.randint(self.start, self.end)
             current += 1
+
+if __name__=="__main__":
+    obj=ProduceChars(1,5,3)
+    print(obj)
