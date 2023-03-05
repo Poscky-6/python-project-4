@@ -15,12 +15,17 @@ from resources.films import Film   # resource model
 from models.datamodels.films import Film_  # pydantic model
 from models.datamodels.characters import Character_
 from models.datamodels.planets import Planet_
+from models.datamodels.species import Species_
 
 from dal.db_conn_helper import get_db_conn
 from dal.dml import insert_resource
 from utils.fetch_data import hit_url
 from utils.timing import timeit
 
+def store_starships():
+    pass
+
+@timeit
 def store_species():
     species = film_data.species
     species_data = []
@@ -32,19 +37,19 @@ def store_species():
 
     ]
 
-    for spe in species:
-        response = hit_url(spe)
-        spe_1 = response.json()
-        spe_1= Planet_(**spe_1)
+    for species_url in species:
+        response = hit_url(species_url)
+        species_1 = response.json()
+        species_1= Species_(**species_1)
         species_values = [
-            spe_1.average_height,
-            spe_1.average_lifespan,
-            spe_1.name,
-            spe_1.skin_colors,
+            species_1.average_height,
+            species_1.average_lifespan,
+            species_1.name,
+            species_1.skin_colors,
 
         ]
 
-        species_id = int(spe.split("/")[-2])
+        species_id = int(species_url.split("/")[-2])
         result = insert_resource(
             "species",
             "species_id",
@@ -52,7 +57,7 @@ def store_species():
             species_columns,
             species_values)
 
-        species_data.append(spe_1)
+        species_data.append(species_1)
 
     return species_data
 
@@ -177,6 +182,9 @@ if __name__ == "__main__":
     # column list can be once created and re-used
 
     planet_data=store_planets()
+
+    species_data=store_species()
+    starships_data=store_starships()
 
 
 

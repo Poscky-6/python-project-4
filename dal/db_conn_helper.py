@@ -54,6 +54,7 @@ def _abs_path(filename):
 
 
 
+
 def _load():
     """Loads the settings YAML files and stores their content under the
     ``_settings`` variable.
@@ -66,6 +67,7 @@ def _load():
 
     env_filename = _abs_path("settings/secrets.yaml")
     _load_from_file(env_filename)
+
 
 
 def get_db_conn() -> Connection:

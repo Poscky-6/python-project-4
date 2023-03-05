@@ -5,7 +5,7 @@ from typing import Optional, List
 from models.basemodel import Base
 
 
-class Species(Base):
+class Species_(Base):
     """
        Data model for passing the data of species from `star_wars API`
    """
