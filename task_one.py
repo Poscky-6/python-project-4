@@ -13,8 +13,6 @@ Using these random numbers you will be pulling 15 characters
 from the API using Python.
 
 """
-
-import sys
 import random
 import argparse
 
@@ -33,6 +31,7 @@ def generate_random_numbers(n: int = 15) -> list:
         result.append(random.randint(1, 83))
         i += 1
     return result
+
 
 
 def get_url(resource_id: int, resource: str) -> str:
@@ -106,7 +105,7 @@ def main():
         result = res.json()
 
         # capturing name from dict object
-        data.append(result.get("name"))
+        data.append(result.get("producer"))
 
     print(data)
 
