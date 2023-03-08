@@ -47,3 +47,11 @@ def fetch_data(urls: List) -> Union[List, Dict]:
         data.append(res.json())
 
     return data
+
+def fetch_char_json(url):
+    response = requests.get(url)
+    print(f"[ INFO ] {response} - {url}")
+    if response.status_code != 200:
+        response.raise_for_status()
+    else:
+        return response.json()

@@ -53,5 +53,5 @@ if __name__ == "__main__":
             "url": "https://swapi.dev/api/species/1/"
             }
 
-    obj = Species(**data)
+    obj = Species_(**data)
     print(obj)
