@@ -20,6 +20,8 @@ from models.datamodels.films import Film_  # pydantic model
 from models.datamodels.characters import Character_
 from models.datamodels.planets import Planet_
 from models.datamodels.species import Species_
+from models.datamodels.starships import Starship_
+from models.datamodels.vehicles  import Vehicles_
 
 
 from dal.db_conn_helper import get_db_conn
@@ -65,9 +67,74 @@ def store_characters():
         characters_data.append(char)
     return characters_data
 
+@timeit
+def store_vehicles():
+    vehicles = film_data.vehicles
+    vehicles_data = []
 
+    vehicle_columns = [
+        "cargo_capacity",
+        "consumables",
+        "model",
+        "name"
+    ]
+
+    for vehicle in vehicles:
+        response = hit_url(vehicle)
+        vehicle_ = response.json()
+        vehicle_ = Vehicles_(**vehicle_)
+        vehicle_values = [
+            vehicle_.cargo_capacity,
+            vehicle_.consumables,
+            vehicle_.model,
+            vehicle_.name
+        ]
+
+        vehicle_id = int(vehicle.split("/")[-2])
+        result = insert_resource(
+            "vehicle",
+            "vehicle_id",
+            vehicle_id,
+            vehicle_columns,
+            vehicle_values
+        )
+        vehicles_data.append(vehicle_)
+    return vehicles_data
+
+@timeit
 def store_starships():
-    pass
+    starships = film_data.starships
+    starships_data = []
+
+    starship_columns = [
+        "cargo_capacity",
+        "consumables",
+        "model",
+        "name"
+    ]
+
+    for starship in starships:
+        response = hit_url(starship)
+        star = response.json()
+        star1 =Starship_(**star)
+        starship_values = [
+            star1.cargo_capacity,
+            star1.consumables,
+            star1.model,
+            star1.name
+        ]
+
+        starship_id = int(starship.split("/")[-2])
+        result = insert_resource(
+            "starship",
+            " starship_id",
+            starship_id,
+            starship_columns,
+            starship_values
+        )
+        starships_data.append(star1)
+    return starships_data
+
 
 @timeit
 def store_species():
@@ -218,26 +285,17 @@ if __name__ == "__main__":
 
 
 
-    # TODO-developer1 code
 
-    # capture all characters
-    # film_data.characters
-    # only values will change
-    # column list can be once created and re-used
+#without_multithreading
+    character_data = store_characters()
+    planet_data=store_planets()
+    species_data=store_species()
+    starship_data=store_starships()
+    vehicle_data=store_vehicles()
 
-    #character_data = store_characters()
-    character_data1=store_characters1()
+#with_multithreading
+    character_data1 = store_characters1()
 
-    # TODO
-    # capture all planets
-    # film_data.planets
-    # only values will change
-    # column list can be once created and re-used
-
-    # planet_data=store_planets()
-    #
-    # species_data=store_species()
-    # starships_data=store_starships()
 
 
 

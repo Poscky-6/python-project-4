@@ -5,7 +5,7 @@ from typing import Optional, List
 from models.basemodel import Base
 
 
-class Vehicles(Base):
+class Vehicles_(Base):
     """
        Data model for passing the data of vehicles from `star_wars API`
    """
@@ -47,5 +47,5 @@ if __name__ == "__main__":
             "url": "https://swapi.dev/api/vehicles/4/"
             }
 
-    obj = Vehicles(**data)
+    obj = Vehicles_(**data)
     print(obj)

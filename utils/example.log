@@ -638,3 +638,43 @@ INFO:root:we are hitting - https://swapi.dev/api/people/81/
 INFO:root:success - 200
 INFO:root:we are hitting - https://swapi.dev//api/films/1
 INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/2/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/2/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/2/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/2/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/3/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/5/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/9/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/10/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/11/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/12/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/starships/13/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/vehicles/4/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/vehicles/6/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/vehicles/7/
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev/api/vehicles/8/
+INFO:root:success - 200

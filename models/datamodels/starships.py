@@ -5,7 +5,7 @@ from typing import Optional, List
 from models.basemodel import Base
 
 
-class Starships(Base):
+class Starship_(Base):
     """
        Data model for passing the data of starships from `star_wars API`
    """
@@ -52,5 +52,5 @@ if __name__ == "__main__":
             "url": "https://swapi.dev/api/starships/2/"
             }
 
-    obj = Starships(**data)
+    obj = Starship_(**data)
     print(obj)
