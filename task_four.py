@@ -249,6 +249,155 @@ def store_characters1():
     return characters_data
 
 
+@timeit
+def store_planets1():
+    planets = film_data.planets
+    planets_data = []
+
+    pla_columns = [
+        "name",
+        "diameter",
+        "climate",
+        "gravity"
+    ]
+
+    pool=ThreadPool(5)
+    pla_data=pool.map(fetch_char_json,planets)
+    pla_data_list=parse_obj_as(List[Planet_],pla_data)
+
+    for planet in pla_data_list:
+
+        pla_values = [
+            planet.name,
+            planet.diameter,
+            planet.climate,
+            planet.gravity
+        ]
+
+        planet_id = int(planet.url.split("/")[-2])
+        result = insert_resource(
+            "planet",
+            "planet_id",
+            planet_id,
+            pla_columns,
+            pla_values
+        )
+        planets_data.append(planet)
+    return planets_data
+
+
+@timeit
+def store_species1():
+    species = film_data.species
+    species_data = []
+
+    species_columns = [
+        "average_height",
+        "average_lifespan",
+        "classification",
+        "name"
+    ]
+
+    pool=ThreadPool(5)
+    spe_data=pool.map(fetch_char_json,species)
+    spe_data_list=parse_obj_as(List[Species_],spe_data)
+
+    for species_ in spe_data_list:
+
+        species_values = [
+            species_.average_height,
+            species_.average_lifespan,
+            species_.classification,
+            species_.name
+        ]
+
+        species_id = int(species_.url.split("/")[-2])
+        result = insert_resource(
+            "species",
+            "species_id",
+            species_id,
+            species_columns,
+            species_values
+        )
+        species_data.append(species_)
+    return species_data
+
+@timeit
+def store_vehicles1():
+    vehicles = film_data.vehicles
+    vehicles_data = []
+
+    vehicle_columns = [
+        "cargo_capacity",
+        "consumables",
+        "model",
+        "name"
+    ]
+
+    pool=ThreadPool(5)
+    vehicle_data=pool.map(fetch_char_json,vehicles)
+    vehicle_data_list=parse_obj_as(List[Vehicles_],vehicle_data)
+
+    for vehicle in vehicle_data_list:
+
+        vehicle_values = [
+            vehicle.cargo_capacity,
+            vehicle.consumables,
+            vehicle.model,
+            vehicle.name
+        ]
+
+        vehicle_id = int(vehicle.url.split("/")[-2])
+        result = insert_resource(
+            "vehicle",
+            "vehicle_id",
+            vehicle_id,
+            vehicle_columns,
+            vehicle_values
+        )
+        vehicles_data.append(vehicle)
+    return vehicles_data
+
+@timeit
+def store_starship1():
+    starships = film_data.starships
+    starships_data = []
+
+    starship_columns = [
+        "cargo_capacity",
+        "consumables",
+        "model",
+        "name"
+    ]
+
+    pool=ThreadPool(5)
+    starship_data=pool.map(fetch_char_json,starships)
+    starship_data_list=parse_obj_as(List[Starship_],starship_data)
+
+    for starship in starship_data_list:
+
+        starship_values = [
+            starship.cargo_capacity,
+            starship.consumables,
+            starship.model,
+            starship.name
+        ]
+
+        starship_id = int(starship.url.split("/")[-2])
+        result = insert_resource(
+            "starship",
+            "starship_id",
+            starship_id,
+            starship_columns,
+            starship_values
+        )
+        starships_data.append(starship)
+    return starships_data
+
+
+
+
+
 
 if __name__ == "__main__":
     data = Film().get_sample_data(id_=1)
@@ -295,7 +444,10 @@ if __name__ == "__main__":
 
 #with_multithreading
     character_data1 = store_characters1()
-
+    planet_data=store_planets1()
+    species_data=store_species1()
+    vehicle_data=store_vehicles1()
+    starship_data=store_starship1()
 
 
 

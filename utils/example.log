@@ -678,3 +678,17 @@ INFO:root:we are hitting - https://swapi.dev/api/vehicles/7/
 INFO:root:success - 200
 INFO:root:we are hitting - https://swapi.dev/api/vehicles/8/
 INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200
+INFO:root:we are hitting - https://swapi.dev//api/films/1
+INFO:root:success - 200

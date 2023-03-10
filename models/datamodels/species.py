@@ -16,7 +16,7 @@ class Species_(Base):
     skin_colors: str
     hair_colors: str
     average_lifespan: str
-    homeworld: str
+    #homeworld: str
     language: str
 
     people: Optional[List[str]]
