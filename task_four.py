@@ -30,7 +30,8 @@ from utils.fetch_data import hit_url,fetch_char_json
 from utils.timing import timeit
 
 
-
+def priya():
+    pass
 
 #without_multithreading
 @timeit
@@ -448,6 +449,7 @@ if __name__ == "__main__":
     species_data=store_species1()
     vehicle_data=store_vehicles1()
     starship_data=store_starship1()
+    priya_data=priya()
 
 #completed
 #commited 2
